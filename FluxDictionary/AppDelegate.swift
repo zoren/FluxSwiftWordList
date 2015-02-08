@@ -14,6 +14,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
+    let wordEntryStore : WordEntryStore = WordEntryStore()
+
     func dispatchPasteboardLookup(){
         let wordOpt = UIPasteboard.generalPasteboard().string
         if let word = wordOpt {
@@ -23,19 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // unfortunately we have to do this as we do not instantiate the viewcontrollers ourselves
-    func registerViewController( viewController : UIViewController){
-        if let wordListVC = viewController as? WordListViewController {
-            let weStore = WordEntryStore(wordListVC)
-            DispatchManager.sharedInstance.register(weStore)
+    func registerViewController( viewController : UIViewController ){
+        if let wordListVC = viewController as? ZFDWordListViewController {
+            self.wordEntryStore.setViewController(wordListVC)
         }
+    }
+
+    func setupFlux(){
+        DispatchManager.sharedInstance.register(wordEntryStore)
     }
 
     func application(application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        setupFlux()
         dispatchPasteboardLookup()
         return true
     }
-
 
     func applicationWillEnterForeground(application: UIApplication) {
         dispatchPasteboardLookup()

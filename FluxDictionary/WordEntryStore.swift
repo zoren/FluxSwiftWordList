@@ -7,12 +7,27 @@ import Foundation
 import UIKit
 
 class WordEntryStore : Store {
-    let viewController : WordListViewController
+    var viewController : ZFDWordListViewController!
     var pasteWordOpt : String?
     var wordList : [String] = []
 
-    init(_ viewController : WordListViewController){
+    init(){
+    }
+
+    private func updateView(){
+        if viewController == nil{
+            return
+        }
+        if let word = pasteWordOpt {
+            viewController.setPasteWord(word)
+        }else{
+            viewController.setPasteWord("")
+        }
+    }
+
+    func setViewController(viewController : ZFDWordListViewController){
         self.viewController = viewController
+        self.updateView()
     }
 
     func processAction(action : Action){
@@ -20,13 +35,12 @@ class WordEntryStore : Store {
         case .LookupFromPasteboard(let wordOpt):
             if let word = wordOpt {
                 if(UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(word)) {
-                    viewController.setPasteWord(word)
-                }else{
-                    viewController.setPasteWord("")
+                    pasteWordOpt = word
+                    break
                 }
-            }else{
-                viewController.setPasteWord("")
             }
+            pasteWordOpt = nil
         }
+        self.updateView()
     }
 }

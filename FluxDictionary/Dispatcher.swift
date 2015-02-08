@@ -6,7 +6,6 @@
 import Foundation
 
 class DispatchManager {
-
     class var sharedInstance: Dispatcher {
         struct Static {
             static let instance : Dispatcher = Dispatcher()
@@ -15,7 +14,6 @@ class DispatchManager {
     }
 
     class Dispatcher {
-
         private var stores: [Store] = []
 
         func register(store: Store) {

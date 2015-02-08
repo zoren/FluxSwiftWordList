@@ -9,7 +9,7 @@
 
 import UIKit
 
-class WordListViewController: UITableViewController, UITableViewDelegate {
+class ZFDWordListViewController: UITableViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerWithAppDelegate()
@@ -20,16 +20,13 @@ class WordListViewController: UITableViewController, UITableViewDelegate {
         appDelegate.registerViewController(self)
     }
 
+    @IBOutlet weak var pasteButton: UIBarButtonItem!
+    
+    @IBAction func addPasteWordToList(sender: AnyObject) {
+        // todo
+    }
+
     func setPasteWord(word : String){
-
-    }
-    @IBOutlet weak var pasteBarButton: UIBarButtonItem!
-//
-    @IBAction func lookupPasteWord(sender: AnyObject) {
-//        addAndLookupWord(self.pasteboardWord!)
-    }
-
-    func addPasteWordToList(){
-
+        pasteButton.title = word
     }
 }

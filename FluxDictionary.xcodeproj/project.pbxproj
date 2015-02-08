@@ -12,8 +12,8 @@
 		6EB6155C8C1EC1FDB5C948EC /* WordEntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB616C4E37D7F8A31DE2A3F /* WordEntryStore.swift */; };
 		6EB6199663B7F857A641B65D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB6102EFBB864658C302B30 /* Images.xcassets */; };
 		6EB619A582A1A881D9C3EFD9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB61D267179E752A8C696CD /* LaunchScreen.xib */; };
-		6EB61C0E77EFD292C4A6B8BE /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB61B7EDAEE342BDA70A080 /* Actions.swift */; };
-		6EB61CB89DFF5DFA8E794EEC /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB61A9880309AAFBC48C3D0 /* WordListViewController.swift */; };
+		6EB61C0E77EFD292C4A6B8BE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB61B7EDAEE342BDA70A080 /* Action.swift */; };
+		6EB61CB89DFF5DFA8E794EEC /* ZFDWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB61A9880309AAFBC48C3D0 /* ZFDWordListViewController.swift */; };
 		6EB61E70DEF0A76CAFA15DF7 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB61B8D84222D1B6BA5BADC /* Dispatcher.swift */; };
 		6EB61EF20119C110E2CC698A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB617E601451D412FA47A4F /* AppDelegate.swift */; };
 		6EB61F4E2D6B4AB2C6B8469A /* FluxDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB614CDA2CFC6371F26AE80 /* FluxDictionaryTests.swift */; };
@@ -38,8 +38,8 @@
 		6EB616C370A7593C15E6E73E /* FluxDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB616C4E37D7F8A31DE2A3F /* WordEntryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordEntryStore.swift; sourceTree = "<group>"; };
 		6EB617E601451D412FA47A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6EB61A9880309AAFBC48C3D0 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
-		6EB61B7EDAEE342BDA70A080 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		6EB61A9880309AAFBC48C3D0 /* ZFDWordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZFDWordListViewController.swift; sourceTree = "<group>"; };
+		6EB61B7EDAEE342BDA70A080 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		6EB61B8B4D039F29E0814162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		6EB61B8D84222D1B6BA5BADC /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		6EB61D35EF5383230D13704D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -72,9 +72,9 @@
 				6EB61D267179E752A8C696CD /* LaunchScreen.xib */,
 				6EB617E601451D412FA47A4F /* AppDelegate.swift */,
 				6EB6167E0B8850CEA94FDD81 /* Main.storyboard */,
-				6EB61A9880309AAFBC48C3D0 /* WordListViewController.swift */,
+				6EB61A9880309AAFBC48C3D0 /* ZFDWordListViewController.swift */,
 				6EB616C4E37D7F8A31DE2A3F /* WordEntryStore.swift */,
-				6EB61B7EDAEE342BDA70A080 /* Actions.swift */,
+				6EB61B7EDAEE342BDA70A080 /* Action.swift */,
 				6EB61B8D84222D1B6BA5BADC /* Dispatcher.swift */,
 				6EB6124B04F61D811FB1B3E6 /* Store.swift */,
 			);
@@ -214,9 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB61EF20119C110E2CC698A /* AppDelegate.swift in Sources */,
-				6EB61CB89DFF5DFA8E794EEC /* WordListViewController.swift in Sources */,
+				6EB61CB89DFF5DFA8E794EEC /* ZFDWordListViewController.swift in Sources */,
 				6EB6155C8C1EC1FDB5C948EC /* WordEntryStore.swift in Sources */,
-				6EB61C0E77EFD292C4A6B8BE /* Actions.swift in Sources */,
+				6EB61C0E77EFD292C4A6B8BE /* Action.swift in Sources */,
 				6EB61E70DEF0A76CAFA15DF7 /* Dispatcher.swift in Sources */,
 				6EB610AB0AF54D7D5DAF6371 /* Store.swift in Sources */,
 			);
@@ -408,6 +408,7 @@
 				6EB61008C078AFF92710058A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EB61C87D84397C5A39ED900 /* Build configuration list for PBXNativeTarget "FluxDictionary" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +417,7 @@
 				6EB61D56F88FFAC296EC5485 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

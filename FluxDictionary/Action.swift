@@ -5,14 +5,6 @@
 
 import Foundation
 
-// actions:
-// lookup + add word
-
-// add phantom cell?
-// lookup phantom cell word
-// remove phantom cell
-
 enum Action {
     case LookupFromPasteboard(String?)
-//    case AddWordToList(String)
 }

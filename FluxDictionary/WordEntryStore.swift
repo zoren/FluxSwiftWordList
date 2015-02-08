@@ -23,6 +23,7 @@ class WordEntryStore : Store {
         }else{
             viewController.setPasteWord("")
         }
+        viewController.setWords(wordList)
     }
 
     func setViewController(viewController : ZFDWordListViewController){
@@ -40,6 +41,9 @@ class WordEntryStore : Store {
                 }
             }
             pasteWordOpt = nil
+            break
+        case .AddWordToList(let word):
+            wordList.append(word)
         }
         self.updateView()
     }

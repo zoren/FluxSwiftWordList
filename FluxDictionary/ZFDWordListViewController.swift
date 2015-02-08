@@ -22,14 +22,27 @@ class ZFDWordListViewController: UITableViewController, UITableViewDelegate, UIT
     }
 
     @IBOutlet weak var pasteButton: UIBarButtonItem!
-    
-    @IBAction func addPasteWordToList(sender: AnyObject) {
+
+    @IBAction func showDictionaryWord(sender: AnyObject) {
         if let word = pasteButton.title {
             if(countElements(word) > 0) {
-                let action = Action.AddWordToList(word)
+                let action = Action.ShowDictionary(word)
                 DispatchManager.sharedInstance.dispatch(action)
             }
         }
+    }
+
+    func showDictionaryLookup(word : String, completion : () -> ()){
+        // http://stackoverflow.com/a/17820758
+        let libRef : UIReferenceLibraryViewController = UIReferenceLibraryViewController(term: word)
+        libRef.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.presentViewController(libRef,
+                animated: true,
+                completion: completion)
+    }
+
+    func showAndAddToList(word : String){
+        showDictionaryLookup(word, {DispatchManager.sharedInstance.dispatch(Action.AddWordToList(word))})
     }
 
     func setPasteWord(word : String){

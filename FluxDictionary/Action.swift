@@ -8,4 +8,5 @@ import Foundation
 enum Action {
     case LookupFromPasteboard(String?)
     case AddWordToList(String)
+    case ShowDictionary(String)
 }

@@ -14,37 +14,35 @@ class WordEntryStore : Store {
     init(){
     }
 
-    private func updateView(){
-        if viewController == nil{
+    private func updatePasteWordView(){
+        if viewController == nil {
             return
         }
-        if let word = pasteWordOpt {
-            viewController.setPasteWord(word)
-        }else{
-            viewController.setPasteWord("")
-        }
-        viewController.setWords(wordList)
+        viewController.setPasteWord(pasteWordOpt ?? "")
     }
 
     func setViewController(viewController : ZFDWordListViewController){
         self.viewController = viewController
-        self.updateView()
+        self.updatePasteWordView()
     }
 
     func processAction(action : Action){
         switch action {
         case .LookupFromPasteboard(let wordOpt):
             if let word = wordOpt {
-                if(UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(word)) {
-                    pasteWordOpt = word
-                    break
-                }
+                pasteWordOpt =
+                        UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(word) ? word : nil
             }
-            pasteWordOpt = nil
+            self.updatePasteWordView()
+            break
+        case .ShowDictionary(let word):
+            viewController.showAndAddToList(word)
             break
         case .AddWordToList(let word):
             wordList.append(word)
+            viewController.setWords(wordList)
+            break
         }
-        self.updateView()
     }
+
 }
